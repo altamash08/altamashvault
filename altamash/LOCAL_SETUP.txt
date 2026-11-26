@@ -1,0 +1,17 @@
+ALTAMASHVAULT - LOCAL RUN
+
+1) Open two PowerShell terminals.
+2) Backend terminal:
+   cd altamash\server
+   npm install
+   npm start
+   (or: npm run server)
+3) Frontend terminal:
+   cd altamash\client
+   npm install
+   npm run dev
+4) Open the Vite URL shown in the terminal.
+
+The included .env files are restored from the original project. Client VITE_BACKEND_URL is set to http://localhost:5000 for local testing. Change it back to the production backend URL before production deployment if needed.
+
+IMPORTANT: .env files contain private credentials. Keep them out of GitHub. The root .gitignore excludes these files. For GitHub/Vercel deployment, configure environment variables in the deployment settings instead of uploading .env files.

@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: Outfit;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.rich-text { font-size: 15px; color: #7A7B7D; }
+
+.rich-text p { margin-bottom: 16px; }
+
+.rich-text h1 { font-size: 36px; font-weight: 800; color: #252525; margin: 32px 0; }
+
+.rich-text h2 { font-size: 22px; font-weight: 700; color: #252525; margin: 24px 0; }
+
+.rich-text h3 { font-size: 18px; font-weight: 600; color: #333333; margin: 20px 0; }
+
+.rich-text h4 { font-size: 16px; font-weight: 500; color: #444444; margin: 16px 0; }
+
+.rich-text h5 { font-size: 14px; font-weight: 400; color: #555555; margin: 12px 0; }
+
+.rich-text h6 { font-size: 12px; font-weight: 400; color: #666666; margin: 8px 0; }
+
+.rich-text strong { font-weight: 700; }
+
+.rich-text ol { margin-left: 30px; list-style-type: decimal; }
+
+.rich-text ul { margin-left: 30px; list-style-type: disc; }
+
+.rich-text li { margin-bottom: 8px; }
+/* === ALTAMASHVAULT VISUAL REFRESH === */
+:root {
+  --av-ink: #111827;
+  --av-muted: #667085;
+  --av-violet: #7763ff;
+  --av-cyan: #4de2d0;
+  --av-border: #e6e9f2;
+  --av-surface: #ffffff;
+}
+body { background: #f7f8fc; color: var(--av-ink); }
+#root { overflow-x: clip; }
+
+/* Premium, dark hero block */
+.vault-hero {
+  min-height: 570px; padding-top: 112px; padding-bottom: 74px; overflow: hidden;
+  background: radial-gradient(ellipse at 75% 25%, rgba(107,91,255,.32), transparent 38%),
+              radial-gradient(ellipse at 15% 85%, rgba(47,205,190,.14), transparent 36%),
+              linear-gradient(135deg, #101326 0%, #151a34 54%, #101827 100%);
+  color: #fff; isolation: isolate;
+}
+.vault-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: .23;
+  background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+.vault-hero-inner { max-width: 1050px; }
+.vault-eyebrow { display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.055); border-radius: 99px; padding: 9px 15px; color: #c6c9e4; font-size: 11px; font-weight: 700; letter-spacing: .16em; margin-bottom: 25px; }
+.vault-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--av-cyan); box-shadow: 0 0 12px var(--av-cyan); }
+.vault-hero-title { font-family: 'Space Grotesk', sans-serif !important; font-size: clamp(42px, 6vw, 76px) !important; line-height: 1.07 !important; letter-spacing: -.055em !important; color: #f9faff !important; margin: 0 !important; }
+.vault-hero-title span { background: linear-gradient(95deg, #a69aff 8%, #76e8dc 94%); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
+.vault-hero-copy { margin-top: 23px; font-size: 17px; line-height: 1.7; color: #aeb6ce !important; }
+.vault-search-wrap { max-width: 650px; margin-top: 32px; }
+.vault-search-wrap form, .vault-search-wrap > div { box-shadow: 0 15px 40px rgba(0,0,0,.25); border-radius: 16px; }
+.vault-hero-foot { display: flex; align-items: center; gap: 12px; margin-top: 26px; color: #8993b0; font-size: 12px; }
+.vault-hero-foot i { display: block; width: 3px; height: 3px; border-radius: 50%; background: #69728e; }
+.vault-hero-orb { position: absolute; border-radius: 50%; filter: blur(1px); pointer-events: none; z-index: -1; }
+.vault-orb-one { width: 380px; height: 380px; right: -130px; top: 55px; border: 1px solid rgba(135,123,255,.13); box-shadow: inset 0 0 80px rgba(115,99,255,.08); }
+.vault-orb-two { width: 190px; height: 190px; left: -65px; bottom: 10px; border: 1px solid rgba(77,226,208,.12); }
+
+/* Navigation and shared surfaces */
+#root > div > div:first-child:has(img[alt="Logo"]) { background: rgba(255,255,255,.88) !important; border-bottom: 1px solid #e8eaf2 !important; box-shadow: 0 5px 24px rgba(17,24,39,.045); padding-top: 15px; padding-bottom: 15px; }
+#root button.bg-orange-600, button.bg-orange-600 { background: linear-gradient(110deg, #6c5cff, #8272ff) !important; color: white !important; border-radius: 12px !important; box-shadow: 0 6px 18px rgba(108,92,255,.22); }
+#root button.bg-orange-600:hover { filter: brightness(1.07); transform: translateY(-2px); }
+#root .rounded-lg, #root .rounded-xl, #root .rounded-2xl { border-radius: 18px; }
+#root .shadow, #root .shadow-md, #root .shadow-lg { box-shadow: 0 8px 26px rgba(17,24,39,.055); }
+#root a.border, #root button.border { border-color: #e4e7f0; }
+
+/* Course tiles */
+#root a[class*="border-gray-500/30"] { background: #fff; border: 1px solid #e8eaf2 !important; border-radius: 18px !important; box-shadow: 0 5px 18px rgba(17,24,39,.035); transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease; }
+#root a[class*="border-gray-500/30"]:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(17,24,39,.10); border-color: rgba(119,99,255,.3) !important; }
+#root a[class*="border-gray-500/30"] img:first-child { aspect-ratio: 16 / 9; object-fit: cover; }
+#root a[class*="border-gray-500/30"] h3 { line-height: 1.45; color: #171d30; }
+#root .text-orange-700, #root .text-orange-500, #root .text-orange-600 { color: #6c5cff !important; }
+#root .bg-orange-500, #root .bg-orange-600 { background-color: #6c5cff !important; }
+#root .bg-gradient-to-r { background-image: linear-gradient(110deg, #6c5cff, #45cfc1) !important; }
+
+/* Section rhythm */
+#root h2 { letter-spacing: -.025em; }
+#root input, #root textarea, #root select { border-radius: 12px; }
+#root input:focus, #root textarea:focus, #root select:focus { border-color: #7763ff !important; box-shadow: 0 0 0 4px rgba(119,99,255,.12) !important; }
+#root table { border-radius: 14px; overflow: hidden; }
+#root th { background: #f4f5fb !important; }
+#root aside { border-color: #e7eaf2 !important; }
+
+@media (max-width: 768px) {
+  .vault-hero { min-height: auto; padding-top: 82px; padding-bottom: 58px; }
+  .vault-eyebrow { font-size: 9px; letter-spacing: .12em; padding: 8px 11px; margin-bottom: 20px; }
+  .vault-hero-copy { font-size: 14px; margin-top: 17px; }
+  .vault-search-wrap { margin-top: 25px; }
+  .vault-hero-foot { font-size: 10px; gap: 8px; }
+  .vault-orb-one { width: 250px; height: 250px; right: -120px; top: 30px; }
+  .vault-orb-two { width: 140px; height: 140px; left: -90px; }
+}
+
+/* === ALTAMASHVAULT: FULL FUTURE-FORWARD UI SYSTEM === */
+:root { --vault-bg:#f5f7fc; --vault-ink:#15182c; --vault-muted:#707791; --vault-violet:#7964ff; --vault-cyan:#62e5d4; --vault-line:#e3e7f2; --vault-dark:#111426; }
+body { background:var(--vault-bg)!important; color:var(--vault-ink); }
+/* A fresh geometric brand mark, retaining the AltamashVault name */
+.vault-brand { display:inline-flex; align-items:center; gap:11px; color:#17192d; white-space:nowrap; }
+.vault-brand-mark { width:36px; height:36px; position:relative; display:inline-flex; align-items:center; justify-content:center; border-radius:12px; background:linear-gradient(140deg,#7764ff,#43d8cb); box-shadow:0 7px 18px rgba(106,92,255,.25); transform:rotate(-2deg); }
+.vault-brand-mark::before { content:''; position:absolute; width:17px; height:17px; border:2px solid white; border-radius:5px 5px 8px 5px; transform:rotate(45deg); }
+.vault-brand-mark::after { content:''; position:absolute; width:7px; height:7px; background:#fff; border-radius:2px; transform:translate(5px,-5px); }
+.vault-brand-mark span { width:5px;height:5px;border-radius:50%;background:#d3fff9;position:absolute;transform:translate(-6px,6px); }
+.vault-brand-name { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:-.055em; }
+.vault-brand-name span { color:#7663ff; }
+.vault-brand-light { color:#f8f9ff; }
+.vault-brand-light .vault-brand-name span { color:#71e8dc; }
+.vault-brand-button { background:transparent!important; border:0!important; padding:0!important; box-shadow:none!important; }
+.vault-brand-button:hover { transform:translateY(-1px); }
+/* Navbar */
+#root > div > div:first-child:has(.vault-brand) { position:sticky; top:0; z-index:30; backdrop-filter:blur(18px); background:rgba(250,251,255,.88)!important; border-color:rgba(218,223,239,.85)!important; box-shadow:0 8px 26px rgba(24,29,57,.04); }
+#root .vault-brand-button + div button:not(.cl-userButtonTrigger), #root .vault-brand-button + div a { font-weight:600; color:#4b526e; transition:color .2s; }
+#root .vault-brand-button + div button:not(.cl-userButtonTrigger):hover, #root .vault-brand-button + div a:hover { color:var(--vault-violet); }
+/* Hero's lower transition and shared section visual */
+.vault-hero { min-height:620px; border-radius:0 0 34px 34px; margin-bottom:10px; }
+.vault-hero-title { max-width:900px; }
+.vault-hero-copy { max-width:650px; }
+.vault-section { width:100%; max-width:1440px; margin:0 auto; }
+.vault-section-heading { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.vault-section-kicker { font:700 10px 'Space Grotesk',sans-serif; letter-spacing:.19em; color:#7867ff; }
+.vault-section-heading h2, .vault-testimonials > h2 { font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,3vw,42px)!important; font-weight:700!important; letter-spacing:-.05em!important; color:#161a2f!important; line-height:1.1; margin:0!important; }
+.vault-section-copy { max-width:660px; color:#777f99!important; line-height:1.75; }
+.vault-courses-section { padding-top:80px!important; padding-bottom:90px!important; }
+.vault-course-grid { padding:0!important; }
+.vault-course-card { background:linear-gradient(180deg,#fff,#fbfcff); border:1px solid #e4e8f3!important; border-radius:21px!important; padding-bottom:0!important; box-shadow:0 8px 28px rgba(27,31,64,.045); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.vault-course-card:hover { transform:translateY(-7px); box-shadow:0 20px 45px rgba(30,35,70,.12); border-color:#b8b0ff!important; }
+.vault-course-card > img:first-child { width:100%; aspect-ratio:16/9; object-fit:cover; }
+.vault-course-card > div { padding:18px!important; }
+.vault-course-card h3 { font-size:16px!important; font-weight:700!important; letter-spacing:-.02em; line-height:1.45; }
+.vault-course-card p { color:#788099; }
+.vault-course-card p:last-child { font-size:18px; color:#222540!important; margin-top:12px; }
+.vault-outline-button { display:inline-flex; align-items:center; justify-content:center; border:1px solid #d9dcef!important; color:#545c78!important; background:#fff; border-radius:13px!important; font-weight:600; transition:.2s; }
+.vault-outline-button:hover { border-color:#8e80ff!important; color:#6552ed!important; box-shadow:0 7px 22px rgba(110,93,255,.11); }
+/* Company row, testimonials, CTA */
+#root .flex.flex-wrap.justify-center.items-center.gap-10 { padding:26px 16px; border:1px solid #e5e8f2; background:rgba(255,255,255,.65); border-radius:22px; max-width:1100px; margin:20px auto; }
+.vault-testimonials { width:100%; max-width:1240px; margin:0 auto; padding-top:30px; }
+.vault-testimonials > h2 { margin-bottom:10px!important; }
+.vault-testimonial-card { border:1px solid #e6e9f3!important; border-radius:22px!important; background:#fff!important; box-shadow:0 10px 30px rgba(24,28,54,.05)!important; transition:transform .2s, box-shadow .2s; }
+.vault-testimonial-card:hover { transform:translateY(-4px); box-shadow:0 17px 38px rgba(24,28,54,.09)!important; }
+.vault-testimonial-card > div:first-child { background:linear-gradient(110deg,#f4f3ff,#f3fbfb)!important; border-bottom:1px solid #eceef7; }
+.vault-testimonial-card h1 { font-weight:700!important; }
+.vault-testimonial-card a { color:#7864ff!important; text-decoration:none!important; font-weight:600; }
+.vault-cta { max-width:1200px; width:calc(100% - 36px); margin:55px auto 80px; padding:70px 30px!important; border:1px solid rgba(141,132,255,.25); border-radius:32px; background:radial-gradient(circle at 85% 5%,rgba(111,95,255,.28),transparent 34%),radial-gradient(circle at 8% 90%,rgba(69,216,203,.15),transparent 30%),linear-gradient(135deg,#111426,#1b2040 58%,#101d2c); color:white; overflow:hidden; position:relative; }
+.vault-cta h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,4vw,48px)!important; letter-spacing:-.045em; color:#fff!important; text-align:center; }
+.vault-cta p { max-width:660px; text-align:center; color:#aeb6d2!important; line-height:1.75; }
+.vault-cta button { border-radius:13px!important; background:linear-gradient(100deg,#7662ff,#42d4c7)!important; box-shadow:0 8px 24px rgba(115,99,255,.24); }
+.vault-cta button:hover { transform:translateY(-2px); }
+/* Footer */
+.vault-footer { background:linear-gradient(130deg,#101324,#171c35 70%,#101e2a); margin-top:35px!important; padding:0 clamp(24px,8vw,130px); color:#fff; border-radius:30px 30px 0 0; }
+.vault-footer-top { display:grid; grid-template-columns:1.5fr .7fr .8fr 1.2fr; gap:45px; padding:55px 0 44px; }
+.vault-footer-brand p { color:#b4bad1; font-size:14px; line-height:1.8; max-width:330px; margin:20px 0 12px; }
+.vault-footer-tag { color:#7c88a9; font-size:12px; }
+.vault-footer-links { display:flex; flex-direction:column; gap:12px; }
+.vault-footer-links h3,.vault-footer-note h3 { font-family:'Space Grotesk',sans-serif; color:#f8f9ff; font-weight:700; font-size:16px; margin-bottom:5px; }
+.vault-footer-links a { color:#b0b8d0; font-size:13px; text-decoration:none; transition:color .2s; }
+.vault-footer-links a:hover { color:#75e8dc; }
+.vault-footer-kicker { font-size:10px; letter-spacing:.18em; font-weight:700; color:#7de4d9; }
+.vault-footer-note h3 { font-size:23px; letter-spacing:-.04em; line-height:1.3; margin:13px 0 20px; }
+.vault-footer-cta { display:inline-flex; gap:14px; align-items:center; color:#d4d8ff; border:1px solid rgba(255,255,255,.17); padding:11px 15px; border-radius:12px; font-size:13px; text-decoration:none; }
+.vault-footer-cta span { color:#72e5d8; font-size:17px; }
+.vault-footer-bottom { border-top:1px solid rgba(255,255,255,.12); display:flex; justify-content:space-between; gap:18px; padding:18px 0 22px; font-size:11px; color:#7e89a7; }
+.vault-educator-footer { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 28px; border-top:1px solid #e5e8f3; color:#788099; font-size:12px; background:rgba(255,255,255,.55); }
+.vault-brand-compact .vault-brand-mark { width:29px;height:29px;border-radius:10px; }
+/* Internal learner pages: same dark/gradient visual language */
+.vault-page-shell { max-width:1450px; margin:0 auto; padding-top:58px!important; padding-bottom:70px!important; }
+.vault-course-list { min-height:60vh; }
+.vault-list-heading > div:first-child h1 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.045em; font-size:clamp(34px,4vw,48px)!important; color:#161a2f!important; }
+.vault-list-heading > div:first-child p { margin-top:12px; color:#8a91a8; }
+.vault-list-heading > div:first-child p span:first-child { color:#7865ff!important; font-weight:600; }
+.vault-course-list .vault-course-grid, .vault-course-list .grid { gap:20px!important; }
+.vault-enrollments h1 { font-family:'Space Grotesk',sans-serif; font-size:36px!important; letter-spacing:-.04em; }
+.vault-enrollments table, .vault-course-list table { border:1px solid #e4e8f2!important; border-radius:18px; background:#fff; box-shadow:0 9px 30px rgba(24,29,54,.045); }
+.vault-enrollments thead th, .vault-course-list thead th { background:#f1f3fb!important; color:#545c77!important; }
+.vault-enrollments tbody tr, .vault-course-list tbody tr { border-color:#edf0f6!important; }
+.vault-enrollments tbody tr:hover { background:#f9faff; }
+.vault-enrollments button { border-radius:10px!important; background:linear-gradient(110deg,#7663ff,#43d7ca)!important; }
+/* Details page and course player */
+#root .text-course-deatails-heading-large, #root .text-course-deatails-heading-small { font-family:'Space Grotesk',sans-serif; letter-spacing:-.045em; line-height:1.1; }
+#root .rich-text { color:#707791; line-height:1.8; }
+#root .rich-text h1,#root .rich-text h2,#root .rich-text h3 { color:#171a30; font-family:'Space Grotesk',sans-serif; letter-spacing:-.03em; }
+#root .rich-text ul { margin-left:24px; }
+#root .rich-text li::marker { color:#7865ff; }
+#root .border-gray-500\/20 { border-color:#e4e8f2!important; }
+#root .bg-cyan-100\/70 { background:linear-gradient(135deg,rgba(116,102,255,.08),rgba(70,221,204,.08))!important; }
+#root .bg-blue-600, #root button.bg-blue-600 { background:linear-gradient(110deg,#7562ff,#42d7ca)!important; border-radius:12px!important; }
+/* Educator pages & form controls */
+#root .shadow-card { box-shadow:0 9px 30px rgba(23,29,58,.055)!important; border-color:#e4e8f2!important; border-radius:18px!important; background:white; }
+#root .min-h-screen .border-blue-500 { border-color:#e2e7f3!important; }
+#root .min-h-screen h2 { font-family:'Space Grotesk',sans-serif; letter-spacing:-.025em; }
+#root table th { color:#4f5773!important; font-weight:700!important; }
+#root table td { color:#707891; }
+#root input, #root textarea, #root select { background:#fff; border-color:#e0e5f1!important; color:#20243c; }
+#root input::placeholder, #root textarea::placeholder { color:#9ca4b9; }
+#root button { transition:transform .2s ease, filter .2s ease, box-shadow .2s ease; }
+@media(max-width:900px){ .vault-footer-top{grid-template-columns:1fr 1fr;gap:30px;} .vault-hero{min-height:540px;} }
+@media(max-width:600px){
+ .vault-brand-name{font-size:18px}.vault-brand-mark{width:32px;height:32px}.vault-hero{border-radius:0 0 22px 22px;min-height:unset;padding-top:78px;padding-bottom:50px}
+ .vault-courses-section{padding:54px 22px!important}.vault-course-card>div{padding:14px!important}
+ .vault-footer{padding:0 22px;border-radius:22px 22px 0 0}.vault-footer-top{grid-template-columns:1fr 1fr;padding:35px 0;gap:28px 18px}.vault-footer-brand,.vault-footer-note{grid-column:1/-1}.vault-footer-bottom{flex-direction:column;gap:7px;font-size:10px}.vault-cta{padding:45px 20px!important;border-radius:23px}.vault-educator-footer{flex-wrap:wrap;justify-content:center;text-align:center}
+ .vault-page-shell{padding-top:35px!important;padding-bottom:50px!important}.vault-list-heading>div:first-child h1{font-size:34px!important}
+}
+
+/* Learning progress, resume card, and trending course polish */
+.vault-continue-section{width:calc(100% - 40px);max-width:1240px;margin:34px auto 12px;text-align:left;animation:vaultRise .55s ease both}
+.vault-continue-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.vault-continue-heading h2{font:700 clamp(25px,3vw,36px) 'Space Grotesk',sans-serif;letter-spacing:-.045em;color:#171a30;margin:8px 0 7px}
+.vault-continue-heading p{color:#858ca5;font-size:14px;margin:0}
+.vault-continue-all{color:#7562f6;text-decoration:none;font-weight:700;font-size:13px;white-space:nowrap}
+.vault-continue-all span{margin-left:5px}
+.vault-continue-card{display:grid;grid-template-columns:minmax(230px,34%) 1fr;background:linear-gradient(130deg,#111426,#1b2040 72%,#112530);border:1px solid rgba(127,116,255,.23);border-radius:25px;overflow:hidden;box-shadow:0 18px 50px rgba(26,28,62,.11);color:white}
+.vault-continue-thumb{width:100%;height:100%;min-height:250px;object-fit:cover}
+.vault-continue-info{padding:clamp(22px,4vw,38px);display:flex;flex-direction:column;align-items:flex-start}
+.vault-continue-meta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#aeb7d2;font-size:12px}
+.vault-continue-chip{color:#8cebe1;background:rgba(74,219,202,.1);border:1px solid rgba(86,225,211,.23);border-radius:999px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.13em}
+.vault-continue-info h3{font:700 clamp(20px,2.2vw,28px) 'Space Grotesk',sans-serif;letter-spacing:-.035em;margin:18px 0 8px;color:#fff}
+.vault-continue-info p{color:#b2bad3;font-size:13px;margin:0 0 22px}
+.vault-progress-track{height:7px;width:100%;border-radius:99px;background:rgba(255,255,255,.11);overflow:hidden}
+.vault-progress-track span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#7865ff,#50e1d2);transition:width .6s ease}
+.vault-progress-foot{display:flex;justify-content:space-between;gap:10px;width:100%;margin-top:10px;color:#aeb7d2;font-size:11px}
+.vault-progress-foot strong{color:#8eece2}
+.vault-continue-button{display:inline-flex;align-items:center;gap:13px;margin-top:22px;padding:12px 17px;border-radius:12px;background:linear-gradient(100deg,#7663ff,#43d7ca);color:#11172a;text-decoration:none;font-size:13px;font-weight:800;box-shadow:0 9px 22px rgba(111,97,255,.23);transition:transform .2s,box-shadow .2s}
+.vault-continue-button:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(111,97,255,.3)}
+.vault-continue-loading{padding:24px;border:1px solid #e6e9f3;border-radius:18px;background:white;color:#828ba4}
+.vault-course-image-wrap{position:relative;overflow:hidden}
+.vault-course-image-wrap>img{display:block;transition:transform .45s ease}
+.vault-course-card:hover .vault-course-image-wrap>img{transform:scale(1.035)}
+.vault-trending-badge{position:absolute;top:13px;left:13px;display:inline-flex;align-items:center;gap:5px;background:rgba(17,20,38,.88);border:1px solid rgba(125,233,220,.45);color:#8cebe1;padding:7px 10px;border-radius:999px;font:800 10px 'Space Grotesk',sans-serif;letter-spacing:.06em;box-shadow:0 6px 18px rgba(0,0,0,.15);backdrop-filter:blur(10px)}
+@keyframes vaultRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.vault-continue-section{width:calc(100% - 28px);margin:22px auto}.vault-continue-heading{align-items:flex-start;flex-direction:column;gap:10px}.vault-continue-card{grid-template-columns:1fr}.vault-continue-thumb{height:190px;min-height:190px}.vault-continue-info{padding:21px}.vault-continue-meta{font-size:10px}.vault-continue-info p{margin-bottom:17px}}
+
+.vault-enrollment-progress-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 5px;color:#8790a8;font-size:10px}.vault-enrollment-progress-label strong{color:#7663ff;font-size:11px}
+.vault-course-image-wrap>img{aspect-ratio:16/9;object-fit:cover}
